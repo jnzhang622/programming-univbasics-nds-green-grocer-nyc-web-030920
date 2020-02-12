@@ -71,11 +71,11 @@ def apply_clearance(cart)
   while index < cart.size do
     if cart[index][:clearance] == true
       cart[index][:price] = cart[index][:price] * 0.8
+      return cart[index][:price]
     end
     index += 1
-    return cart
   end
-
+nil
 end
 
 def checkout(cart, coupons)
