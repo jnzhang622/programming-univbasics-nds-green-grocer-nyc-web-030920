@@ -103,6 +103,7 @@ if total >= 100
   end
 
   total
+  pp total
 end
 
 
