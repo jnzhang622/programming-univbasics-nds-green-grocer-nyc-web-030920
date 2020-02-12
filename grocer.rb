@@ -64,13 +64,18 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  new_cart = cart
-  cart.each do |name, hash|
-      if hash[:clearance] #if clearance is true, take 20% off
-        new_cart[name][:price] = (cart[name][:price] * 0.8).round(2)
-      end
+  # Consult README for inputs and outputs
+  #
+  # REMEMBER: This method **should** update cart
+  index = 0
+  while index < cart.size do
+    if cart[index][:clearance] == true
+      cart[index][:price] = cart[index][:price] * 0.8
+      return cart[index][:price]
+    end
+    index += 1
   end
-  new_cart #if not, just return the same cart
+nil
 end
 
 def checkout(cart, coupons)
