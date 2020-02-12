@@ -88,7 +88,21 @@ def checkout(cart, coupons)
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
   
+  new_cart = consolidate_cart(cart)
+  apply_coupons(new_cart, coupons)
+  apply_clearance(new_cart)
   
+  total = 0
+  index = 0
+  while index < cart.size do 
+    total += (hash[:price] * hash[:count])
+  end
+
+if total >= 100
+    total *= 0.9
+  end
+
+  total
 end
 
 
